@@ -1,0 +1,60 @@
+@import "colors";
+
+.burger-menu {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid $textColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+
+    &__line {
+        width: 80%;
+        height: 2px;
+        background-color: $textColor;
+        display: inline-block;
+        position: relative;
+        transition: all .3s ease;
+    }
+
+    &__line::before,
+    &__line::after {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: $textColor;
+        transition: all .3s ease;
+    }
+
+    &__line::before,
+    &__line::after {
+        content: '';
+        display: block;
+        transition: 0.2s;
+    }
+
+    &__line::before {
+        transform: translateY(-5px);
+    }
+    
+    &__line::after {
+        transform: translateY(5px);
+    }
+
+    &.active {
+        .burger-menu__line {
+            height: 0;
+        }
+
+        .burger-menu__line::after {
+            transform: rotate(40deg);
+        }
+
+        .burger-menu__line::before {
+            transform: rotate(-40deg);
+        }
+    }
+}

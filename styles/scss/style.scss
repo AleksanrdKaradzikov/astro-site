@@ -1,0 +1,47 @@
+@import "header";
+@import "navigation";
+@import "mobile-menu";
+@import "colors";
+@import "about";
+@import "services";
+@import "mixins";
+@import "fonts";
+
+body {
+    overflow-x: hidden;
+}
+
+.section {
+    height: 100vh;
+}
+
+.text {
+    color: $textColor;
+    line-height: 30px;
+    font-family: 'MuseoModerno', cursive;
+    @include adaptiv-font(18, 16);
+}
+
+.decore-title {
+    font-family: "Calypso", serif;
+    color: $textColor;
+    text-transform: uppercase;
+    border-radius: 6px;
+    border: 1px solid $textColor;
+    @include adaptiv-font(20, 16);
+    padding: 15px;
+    display: inline-block;
+}
+
+.line-title {
+    border-top: 2px solid $decorLineColor;
+    border-bottom: 2px solid $decorLineColor;
+    padding: 30px 0;
+    text-align: center;
+    @include adaptiv-font(24, 20);
+    text-transform: uppercase;
+    color: $textColor;
+    letter-spacing: 2px;
+    line-height: 40px;
+    font-family: "Calypso", serif;
+}

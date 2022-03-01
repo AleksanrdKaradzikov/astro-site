@@ -1,0 +1,82 @@
+@import "variables";
+@import "colors";
+@import "mixins";
+
+.navigation {
+    height: $headerNavHeight;
+    display: flex;
+    align-items: center;
+    background-color: $headerColor;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    &__menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media screen and(max-width: 1200px) {
+            justify-content: space-between;
+        }
+    }
+
+    &__burger-menu {
+        @media screen and(min-width: 1200px) {
+            display: none;
+        }
+    }
+
+    &__link {
+        font-family: 'MuseoModerno', cursive;
+        text-decoration: none;
+        @include adaptiv-font(16, 14);
+        color: $textColor;
+        transition: color .3s ease;
+        text-transform: uppercase;
+        padding: 0 20px;
+        position: relative;
+        display: inline-block;
+
+        @media screen and(max-width: 1200px) {
+            display: none;
+        }
+
+        &:hover {
+            color: lighten($textColor, 50);
+        }
+
+        &--title {
+            @include adaptiv-font(22, 16);
+            padding: 0 40px;
+            font-family: "Calypso", serif;
+
+            @media screen and(max-width: 1200px) {
+                display: inline-block;
+                padding: 0;
+            }   
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            height: 20px;
+            width: 2px;
+            background-color: $textColor;
+
+            @media screen and(max-width: 1200px) {
+                display: none;
+            }
+        }
+
+        &--last {
+            &::after {
+                width: 0;
+                height: 0;
+            }
+        }
+    }
+}

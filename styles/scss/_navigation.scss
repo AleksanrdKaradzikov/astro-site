@@ -28,7 +28,7 @@
     }
 
     &__link {
-        font-family: 'MuseoModerno', cursive;
+        font-family: "Calypso", serif;
         text-decoration: none;
         @include adaptiv-font(16, 14);
         color: $textColor;

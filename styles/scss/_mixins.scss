@@ -6,3 +6,11 @@ $maxWidth: 1280;
 
     font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
 }
+
+@mixin sticky ($top){
+    position: sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
+    top: $top;
+}

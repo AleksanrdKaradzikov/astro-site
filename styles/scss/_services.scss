@@ -139,6 +139,7 @@
         border: none;
         border-radius: 6px;
         transition: all .3s ease;
+        outline: none;
 
         &:hover {
             color: lighten($textColor, 20);

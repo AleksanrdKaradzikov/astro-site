@@ -13,7 +13,6 @@
 .text {
     color: $textColor;
     line-height: 30px;
-    font-family: 'MuseoModerno', cursive;
     @include adaptiv-font(18, 16);
 
     &--mode-white {

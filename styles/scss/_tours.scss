@@ -1,0 +1,120 @@
+@import "colors";
+@import "mixins";
+
+.tours {
+    padding: 80px 0;
+    text-align: center;
+    background-color: $tourBg;
+    background-image: url("../../images//tour-stars.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.gallery {
+    margin-top: 50px;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 150px;
+    grid-auto-flow: row dense;
+
+    &__item {
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        box-sizing: border-box;
+        background: #0c9a9a;
+        color: #fff;
+        grid-column-start: auto;
+        grid-row-start: auto;
+        color: #fff;
+        transition: transform .3s ease-in-out;
+        overflow: hidden;
+        border-radius: 2px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        &:hover {
+            transform: scale(1.05);
+
+            .gallery__in {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .gallery__title {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            &::after {
+                opacity: 0.3;
+            }
+        }
+
+        &--medium {
+            grid-row-end: span 2;
+
+            @media screen and (max-width: 468px) {
+                grid-row-end: auto;
+            }
+        }
+
+        &--large {
+            grid-row-end: span 3;
+
+            @media screen and (max-width: 468px) {
+                grid-row-end: auto;
+            }
+        }
+
+        &--full {
+            grid-column-end: auto;
+
+            @media screen and (min-width: 768px) {
+                grid-column: 1/-1;
+                grid-row-end: span 2;
+            }
+        }
+    }
+
+    &__in {
+        transition: all .5s ease-in-out;
+        transform: translateY(40px);
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        opacity: 0;
+        z-index: 5;
+        @include adaptiv-font(18, 16);
+    }
+
+    &__title {
+        transition: all .5s ease;
+        transition-delay: .2s;
+        position: absolute;
+        bottom: 20px;
+        left: 30px;
+        opacity: 0;
+        transform: translateY(100%);
+        @include adaptiv-font(24, 20);
+        z-index: 5;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
